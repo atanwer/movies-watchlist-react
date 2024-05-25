@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import MovieCard from './MovieCard';
 import { fetchInitialMovies, fetchMovies } from '../../redux/actions/movieActions';
+import MovieCard from '../../components/MovieCard';
 
 const MovieList = () => {
   const [query, setQuery] = useState('');
