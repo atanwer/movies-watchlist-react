@@ -6,7 +6,6 @@
 - [Tech Stack](#tech-stack)
 - [Setup](#setup)
 - [Usage](#usage)
-- [Folder Structure](#folder-structure)
 - [Available Scripts](#available-scripts)
 - [Contributing](#contributing)
 - [License](#license)
@@ -60,43 +59,6 @@ The app should now be running at `http://localhost:3000`.
 4. **View Movie Details**: Click on a movie to view detailed information.
 5. **Manage Watchlist**: Add movies to your watchlist and remove them as needed.
 
-## Folder Structure
-movie-watchlist-app/
-├── public/
-├── src/
-│ ├── components/
-│ │ ├── Auth/
-│ │ │ ├── SignUp.js
-│ │ │ ├── Login.js
-│ │ ├── Movies/
-│ │ │ ├── MovieList.js
-│ │ │ ├── MovieDetail.js
-│ │ │ ├── MovieCard.js
-│ │ ├── Watchlist/
-│ │ │ ├── Watchlist.js
-│ │ │ ├── WatchlistItem.js
-│ ├── redux/
-│ │ ├── actions/
-│ │ │ ├── authActions.js
-│ │ │ ├── movieActions.js
-│ │ │ ├── watchlistActions.js
-│ │ ├── reducers/
-│ │ │ ├── authReducer.js
-│ │ │ ├── movieReducer.js
-│ │ │ ├── watchlistReducer.js
-│ │ │ ├── rootReducer.js
-│ │ ├── store.js
-│ ├── services/
-│ │ ├── api.js
-│ ├── utils/
-│ │ ├── localStorage.js
-│ ├── App.js
-│ ├── index.js
-│ ├── PrivateRoute.js
-│ ├── PublicRoute.js
-├── .env
-├── package.json
-└── README.md
 
 
 ## Available Scripts
