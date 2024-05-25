@@ -29,11 +29,7 @@ The Movie Watchlist App is a web application that allows users to sign up and lo
 ## Setup
 To get started with the project, follow these steps:
 
-1. Clone the repository:
-    ```bash
-    git clone https://github.com/your-username/movie-watchlist-app.git
-    cd movie-watchlist-app
-    ```
+1. Clone the repository
 
 2. Install the dependencies:
     ```bash
@@ -42,15 +38,15 @@ To get started with the project, follow these steps:
 
 3. Create a `.env` file in the root directory and add your OMDb API key:
     ```env
-    REACT_APP_OMDB_API_KEY=your_api_key_here
+    OMDB_API_KEY=your_api_key_here
     ```
 
 4. Start the development server:
     ```bash
-    npm start
+    npm run dev
     ```
 
-The app should now be running at `http://localhost:3000`.
+The app should now be running at `http://localhost:5173/`.
 
 ## Usage
 1. **Sign Up**: Create a new account by providing an email and password.
@@ -64,20 +60,14 @@ The app should now be running at `http://localhost:3000`.
 ## Available Scripts
 In the project directory, you can run:
 
-### `npm start`
+### `npm run dev`
 Runs the app in the development mode.
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-### `npm test`
-Launches the test runner in the interactive watch mode.
-
 ### `npm run build`
-Builds the app for production to the `build` folder.
+Builds the app for production to the `dist` folder.
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
-### `npm run eject`
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
 ## Contributing
 Contributions are welcome! Please feel free to submit a Pull Request.
