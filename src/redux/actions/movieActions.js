@@ -35,11 +35,18 @@ export const fetchInitialMovies = () => async dispatch => {
 
 // Action to fetch movies based on search query
 export const fetchMovies = (query) => async dispatch => {
+  console.log("test", query);
   dispatch({ type: 'FETCH_MOVIES_REQUEST' });
   try {
-    const response = await axios.get(`http://www.omdbapi.com/?s=${query}&apikey=${API_KEY}`);
-    dispatch({ type: 'FETCH_MOVIES_SUCCESS', payload: response.data.Search });
+    const response = await axios.get(`http://www.omdbapi.com/?s=${query}&apikey=${OMBD_API_KEY}`);
+    console.log("response", response.data);
+    if(response.data.Response === "True"){
+      dispatch({ type: 'FETCH_MOVIES_SUCCESS', payload: response.data.Search });
+    } else {
+      dispatch({ type: 'FETCH_MOVIES_FAILURE', error: response.data.Error });
+    }
   } catch (error) {
+    console.log("error", error);
     dispatch({ type: 'FETCH_MOVIES_FAILURE' });
   }
 };
@@ -48,9 +55,11 @@ export const fetchMovies = (query) => async dispatch => {
 export const fetchMovieDetail = (id) => async dispatch => {
   dispatch({ type: 'FETCH_MOVIE_DETAIL_REQUEST' });
   try {
-    const response = await axios.get(`http://www.omdbapi.com/?i=${id}&apikey=${API_KEY}`);
+    const response = await axios.get(`http://www.omdbapi.com/?i=${id}&apikey=${OMBD_API_KEY}`);
+    console.log("response", response);
     dispatch({ type: 'FETCH_MOVIE_DETAIL_SUCCESS', payload: response.data });
   } catch (error) {
+    console.log("error", error);
     dispatch({ type: 'FETCH_MOVIE_DETAIL_FAILURE' });
   }
 };

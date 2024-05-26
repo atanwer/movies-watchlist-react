@@ -35,7 +35,7 @@ const MovieList = () => {
         {loading ? (
           <p>Loading...</p>
         ) : error ? (
-          <p>Error: {error}</p>
+          <p className='error-message'>Error: {error}</p>
         ) : (
           movies.map((movie) => <MovieCard key={movie.imdbID} movie={movie} />)
         )}

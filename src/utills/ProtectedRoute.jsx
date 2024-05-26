@@ -1,16 +1,21 @@
 import React from 'react';
-import { Navigate, useLocation } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import Sidebar from '../components/Sidebar';
 
 const ProtectedRoute = ({ children }) => {
-  const user = useSelector((state) => state.auth);
-  const location = useLocation();
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
 
-  if (!user.isAuthenticated) {
-    return <Navigate to="/login" state={{ from: location }} replace />;
-  }
-
-  return children;
+  return isAuthenticated ? (
+    <div className="protected-route">
+      <Sidebar />
+      <div className="main-content">
+        {children}
+      </div>
+    </div>
+  ) : (
+    <Navigate to="/login" replace />
+  );
 };
 
 export default ProtectedRoute;
