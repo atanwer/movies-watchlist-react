@@ -366,3 +366,52 @@ body {
 .movie-details-link:hover {
   text-decoration: underline;
 }
+
+
+/* MovieDetails css */
+
+.movie-details-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  color: var(--text-color);
+}
+
+.movie-details {
+  display: flex;
+  background-color: var(--input-background);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  max-width: 900px;
+  width: 100%;
+}
+
+.movie-details-poster {
+  width: 300px;
+  height: auto;
+  border-radius: 10px 0 0 10px;
+}
+
+.movie-details-info {
+  padding: 20px;
+  flex: 1;
+}
+
+.movie-details-title {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: var(--secondary-color);
+}
+
+.movie-details-plot {
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+}
+
+.loading-message,
+.error-message,
+.no-movie-message {
+  text-align: center;
+  font-size: 1.2rem;
+}
