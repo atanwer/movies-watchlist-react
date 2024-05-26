@@ -1,7 +1,6 @@
-// components/WatchlistButton.jsx
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addToWatchlist, removeFromWatchlist } from '../redux/actions/watchlistAction';
+import { addToWatchlist, fetchWatchlist, removeFromWatchlist } from '../redux/actions/watchlistAction';
 
 const WatchlistButton = ({ movie }) => {
   const dispatch = useDispatch();
@@ -17,6 +16,12 @@ const WatchlistButton = ({ movie }) => {
   const handleRemoveFromWatchlist = () => {
     dispatch(removeFromWatchlist(user.email, movie.imdbID));
   };
+
+  useEffect(() => {
+    if (user) {
+      dispatch(fetchWatchlist(user.email)); 
+    }
+  }, [user, dispatch]);
 
   return (
     <button
