@@ -1,13 +1,15 @@
 const initialState = {
-    isAuthenticated: false,
-    user: null,
-    error : null
+    isAuthenticated: localStorage.getItem('isAuthenticated') === 'true',
+    user: JSON.parse(localStorage.getItem('user')) || null,
+    error: null
 };
 
 const authReducer = (state = initialState, action) => {
     switch (action.type) {
         case 'SIGNUP_SUCCESS':
         case 'LOGIN_SUCCESS':
+            localStorage.setItem('isAuthenticated', 'true');
+            localStorage.setItem('user', JSON.stringify(action.payload));
             return {
                 ...state,
                 isAuthenticated: true,
@@ -15,6 +17,8 @@ const authReducer = (state = initialState, action) => {
                 user: action.payload,
             };
         case 'LOGOUT':
+            localStorage.setItem('isAuthenticated', 'false');
+            localStorage.removeItem('user');
             return {
                 ...state,
                 isAuthenticated: false,
