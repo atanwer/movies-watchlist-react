@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { logout } from '../redux/actions/authActions';
@@ -6,6 +6,7 @@ import { logout } from '../redux/actions/authActions';
 const Sidebar = () => {
   const dispatch = useDispatch();
   const location = useLocation();
+  const [isOpen, setIsOpen] = useState(false);
 
   const handleLogout = () => {
     dispatch(logout());
@@ -13,20 +14,29 @@ const Sidebar = () => {
 
   const isActive = (path) => location.pathname === path;
 
+  const toggleSidebar = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
-    <div className="sidebar">
-      <h2>Menu</h2>
-      <ul>
-        <li className={isActive('/') ? 'active' : ''}>
-          <Link to="/">Movies</Link>
-        </li>
-        <li className={isActive('/watchlist') ? 'active' : ''}>
-          <Link to="/watchlist">Watchlist</Link>
-        </li>
-        <li>
-          <button onClick={handleLogout}>Logout</button>
-        </li>
-      </ul>
+    <div>
+      <button className="sidebar-toggle" onClick={toggleSidebar}>
+        ☰
+      </button>
+      <div className={`sidebar ${isOpen ? 'open' : ''}`}>
+        <h2>Menu</h2>
+        <ul>
+          <li className={isActive('/') ? 'active' : ''}>
+            <Link to="/" onClick={toggleSidebar}>Movies</Link>
+          </li>
+          <li className={isActive('/watchlist') ? 'active' : ''}>
+            <Link to="/watchlist" onClick={toggleSidebar}>Watchlist</Link>
+          </li>
+          <li>
+            <button onClick={() => { handleLogout(); toggleSidebar(); }}>Logout</button>
+          </li>
+        </ul>
+      </div>
     </div>
   );
 };
