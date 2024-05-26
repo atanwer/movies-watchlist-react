@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { fetchMovieDetail } from '../../redux/actions/movieActions';
+import WatchlistButton from '../../components/WatchlistButton';
 
 const MovieDetails = () => {
   const { id } = useParams();
@@ -31,6 +32,7 @@ const MovieDetails = () => {
             <p><strong>Director:</strong> {movie.Director}</p>
             <p><strong>Actors:</strong> {movie.Actors}</p>
             <p><strong>IMDB Rating:</strong> {movie.imdbRating}</p>
+            <WatchlistButton movie={movie} />
           </div>
         </div>
       ) : (

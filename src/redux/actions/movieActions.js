@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 const OMBD_API_KEY = import.meta.env.VITE_OMBD_API_KEY;  
+const OMDB_SERVER_URL = import.meta.env.VITE_OMDB_SERVER_URL;  
 
 // Action to fetch a list of predefined popular movies
 export const fetchInitialMovies = () => async dispatch => {
@@ -21,7 +22,7 @@ export const fetchInitialMovies = () => async dispatch => {
 
   try {
     const moviePromises = popularMovies.map(movie =>
-      axios.get(`http://www.omdbapi.com/?t=${encodeURIComponent(movie)}&apikey=${OMBD_API_KEY}`)
+      axios.get(`${OMDB_SERVER_URL}?t=${encodeURIComponent(movie)}&apikey=${OMBD_API_KEY}`)
     );
 
     const movieResponses = await Promise.all(moviePromises);
@@ -35,11 +36,9 @@ export const fetchInitialMovies = () => async dispatch => {
 
 // Action to fetch movies based on search query
 export const fetchMovies = (query) => async dispatch => {
-  console.log("test", query);
   dispatch({ type: 'FETCH_MOVIES_REQUEST' });
   try {
-    const response = await axios.get(`http://www.omdbapi.com/?s=${query}&apikey=${OMBD_API_KEY}`);
-    console.log("response", response.data);
+    const response = await axios.get(`${OMDB_SERVER_URL}?s=${query}&apikey=${OMBD_API_KEY}`);
     if(response.data.Response === "True"){
       dispatch({ type: 'FETCH_MOVIES_SUCCESS', payload: response.data.Search });
     } else {
@@ -55,8 +54,7 @@ export const fetchMovies = (query) => async dispatch => {
 export const fetchMovieDetail = (id) => async dispatch => {
   dispatch({ type: 'FETCH_MOVIE_DETAIL_REQUEST' });
   try {
-    const response = await axios.get(`http://www.omdbapi.com/?i=${id}&apikey=${OMBD_API_KEY}`);
-    console.log("response", response);
+    const response = await axios.get(`${OMDB_SERVER_URL}?i=${id}&apikey=${OMBD_API_KEY}`);
     dispatch({ type: 'FETCH_MOVIE_DETAIL_SUCCESS', payload: response.data });
   } catch (error) {
     console.log("error", error);

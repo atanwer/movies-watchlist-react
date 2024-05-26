@@ -335,6 +335,7 @@ body {
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease;
+  max-width: 300px;
 }
 
 .movie-card:hover {
@@ -349,6 +350,10 @@ body {
 .movie-info {
   padding: 10px;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .movie-title {
@@ -414,4 +419,90 @@ body {
 .no-movie-message {
   text-align: center;
   font-size: 1.2rem;
+}
+
+.watchlist-button {
+  padding: 10px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: block;
+}
+
+.add-button {
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+}
+
+.add-button:hover {
+  background-color: var(--button-hover);
+}
+
+.remove-button {
+  background-color: var(--input-border);
+  color: var(--text-color);
+}
+
+.remove-button:hover {
+  background-color: var(--button-hover);
+}
+
+/* Watchlist CSS */
+.watchlist-container {
+  background-color: var(--primary-color);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  color: var(--text-color);
+}
+
+.watchlist-title {
+  font-size: 2rem;
+  color: var(--secondary-color);
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.watchlist-movies-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.no-watchlist-message {
+  text-align: center;
+  font-size: 1.2rem;
+  color: var(--text-color);
+}
+
+
+/* components/WatchlistButton.css */
+.watchlist-button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+}
+
+.add-button {
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+}
+
+.add-button:hover {
+  background-color: var(--button-hover);
+}
+
+.remove-button {
+  background-color: var(--input-background);
+  color: var(--text-color);
+  border: 1px solid var(--secondary-color);
+}
+
+.remove-button:hover {
+  background-color: var(--button-hover);
 }
