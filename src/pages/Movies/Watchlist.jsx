@@ -5,7 +5,7 @@ import { fetchWatchlist } from '../../redux/actions/watchlistAction';
 
 const Watchlist = () => {
   const dispatch = useDispatch();
-  const user = useSelector(state => state.auth.user); // Assuming user info is stored in auth state
+  const user = useSelector(state => state.auth.user); 
   const watchlist = useSelector(state => state.watchlist.watchlist);
 
   useEffect(() => {

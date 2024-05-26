@@ -286,6 +286,7 @@ body {
   display: flex;
   justify-content: center;
   margin-bottom: 20px;
+  flex-wrap: wrap;
 }
 
 .search-input {
@@ -297,6 +298,7 @@ body {
   width: 300px;
   background-color: var(--input-background);
   color: var(--text-color);
+  max-width: 80%;
 }
 
 .search-button {
@@ -308,6 +310,7 @@ body {
   border-radius: 0 5px 5px 0;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  max-width: 100px;
 }
 
 .search-button:hover {
@@ -505,4 +508,18 @@ body {
 
 .remove-button:hover {
   background-color: var(--button-hover);
+}
+
+
+/* Responsive styles */
+@media (max-width: 600px) {
+  .search-input {
+    border-radius: 5px;
+    margin-bottom: 10px; 
+  }
+
+  .search-button {
+    border-radius: 5px;
+    width: 100%; 
+  }
 }
