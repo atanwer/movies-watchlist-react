@@ -16,26 +16,27 @@ const MovieList = () => {
 
   const handleSearch = (e) => {
     e.preventDefault();
-    dispatch(fetchMovies(query));
+    query ? dispatch(fetchMovies(query)) : dispatch(fetchInitialMovies());
   };
 
   return (
-    <div>
-      <h2>Movie List</h2>
-      <form onSubmit={handleSearch}>
+    <div className="movie-list-container">
+      <h2 className="movie-list-title">Movie List</h2>
+      <form onSubmit={handleSearch} className="search-form">
         <input
           type="text"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder="Search for movies"
+          className="search-input"
         />
-        <button type="submit">Search</button>
+        <button type="submit" className="search-button">Search</button>
       </form>
-      <div>
+      <div className="movies-container">
         {loading ? (
-          <p>Loading...</p>
+          <p className="loading-message">Loading...</p>
         ) : error ? (
-          <p className='error-message'>Error: {error}</p>
+          <p className="error-message">{error}</p>
         ) : (
           movies.map((movie) => <MovieCard key={movie.imdbID} movie={movie} />)
         )}

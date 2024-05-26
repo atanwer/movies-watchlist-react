@@ -61,11 +61,11 @@ body {
   background-color: var(--input-background);
   height: 100%;
   position: fixed;
-  top: 64px; /* Adjust this value to match the height of the header */
+  top: 64px;
   left: 0;
   padding: 20px;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-  z-index: 1000; /* Ensure the sidebar is above the main content */
+  z-index: 1000;
 }
 
 .sidebar h2 {
@@ -105,7 +105,7 @@ body {
 
 .app-content {
   display: flex;
-  height: calc(100vh - 60px); /* Adjust if your header height is different */
+  height: calc(100vh - 64px);
   overflow: hidden;
 }
 
@@ -121,11 +121,11 @@ body {
 }
 
 .main-content {
-  margin-left: 200px; /* Width of the sidebar */
+  margin-left: 200px;
   padding: 20px;
-  margin-top: 64px; /* Adjust if your header height is different */
+  margin-top: 64px;
   flex: 1;
-  overflow-y: auto; /* Enable scrolling if content overflows */
+  overflow-y: auto;
 }
 
 
@@ -270,5 +270,99 @@ body {
 }
 
 .login-link:hover {
+  text-decoration: underline;
+}
+
+/* MovieList.css */
+
+.movie-list-title {
+  color: var(--text-color);
+  font-size: 2rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.search-form {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.search-input {
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid var(--input-border);
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  width: 300px;
+  background-color: var(--input-background);
+  color: var(--text-color);
+}
+
+.search-button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: none;
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.search-button:hover {
+  background-color: var(--button-hover);
+}
+
+.movies-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.loading-message,
+.error-message {
+  color: var(--text-color);
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+/* MovieCard css */
+
+.movie-card {
+  background-color: var(--input-background);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.movie-card:hover {
+  transform: translateY(-10px);
+}
+
+.movie-poster {
+  width: 100%;
+  height: auto;
+}
+
+.movie-info {
+  padding: 10px;
+  text-align: center;
+}
+
+.movie-title {
+  color: var(--text-color);
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.movie-details-link {
+  text-decoration: none;
+  color: var(--secondary-color);
+  font-size: 1rem;
+}
+
+.movie-details-link:hover {
   text-decoration: underline;
 }
