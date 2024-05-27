@@ -38,7 +38,8 @@ To get started with the project, follow these steps:
 
 3. Create a `.env` file in the root directory and add your OMDb API key:
     ```env
-    OMDB_API_KEY=your_api_key_here
+    VITE_OMBD_API_KEY=
+    VITE_OMDB_SERVER_URL=http://www.omdbapi.com
     ```
 
 4. Start the development server:
