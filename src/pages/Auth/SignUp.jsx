@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { signUp } from '../../redux/actions/authActions';
 import { Link, useNavigate } from 'react-router-dom';
 
@@ -7,12 +7,19 @@ const SignUp = () => {
   const [email, setEmail] = useState('');
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(signUp({ email }));
     navigate('/', { replace: true });
   };
+
+  useEffect(() => {
+    if (isAuthenticated) navigate('/', { replace: true });
+  })
+
 
   return (
     <div className="signup-container">
